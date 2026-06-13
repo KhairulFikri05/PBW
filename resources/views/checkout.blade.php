@@ -46,7 +46,9 @@
             // Jika pembayaran berhasil (Lunas)
             onSuccess: function(result){
                 alert("Pembayaran berhasil! Pesanan Anda akan segera disiapkan.");
-                window.location.href = "/"; // Arahkan kembali ke halaman utama
+                
+                // 🌟 JALAN NINJA: Oper ID pesanan ke rute sukses agar database ter-update
+                window.location.href = "/checkout/success?order_id={{ $order->id }}";
             },
             // Jika pembayaran tertunda (Misal: baru milih Virtual Account tapi belum ditransfer)
             onPending: function(result){
